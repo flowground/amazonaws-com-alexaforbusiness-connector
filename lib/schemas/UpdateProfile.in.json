@@ -1,0 +1,112 @@
+{
+    "type": "object",
+    "properties": {
+        "Action": {
+            "required": true,
+            "type": "string"
+        },
+        "Version": {
+            "required": true,
+            "type": "string"
+        },
+        "requestBody": {
+            "properties": {
+                "Address": {
+                    "description": "The updated address for the room profile.",
+                    "maxLength": 500,
+                    "minLength": 1,
+                    "type": "string"
+                },
+                "DistanceUnit": {
+                    "description": "The updated distance unit for the room profile.",
+                    "enum": [
+                        "METRIC",
+                        "IMPERIAL"
+                    ],
+                    "type": "string"
+                },
+                "IsDefault": {
+                    "description": "Sets the profile as default if selected. If this is missing, no update is done to the default status.",
+                    "type": "boolean"
+                },
+                "MaxVolumeLimit": {
+                    "description": "The updated maximum volume limit for the room profile.",
+                    "type": "integer"
+                },
+                "PSTNEnabled": {
+                    "description": "Whether the PSTN setting of the room profile is enabled.",
+                    "type": "boolean"
+                },
+                "ProfileArn": {
+                    "description": "The ARN of the room profile to update. Required.",
+                    "pattern": "arn:[a-z0-9-\\.]{1,63}:[a-z0-9-\\.]{0,63}:[a-z0-9-\\.]{0,63}:[a-z0-9-\\.]{0,63}:[^/].{0,1023}",
+                    "type": "string"
+                },
+                "ProfileName": {
+                    "description": "The updated name for the room profile.",
+                    "maxLength": 100,
+                    "minLength": 1,
+                    "pattern": "[\\u0009\\u000A\\u000D\\u0020-\\u007E\\u0085\\u00A0-\\uD7FF\\uE000-\\uFFFD\\u10000-\\u10FFFF]*",
+                    "type": "string"
+                },
+                "SetupModeDisabled": {
+                    "description": "Whether the setup mode of the profile is enabled.",
+                    "type": "boolean"
+                },
+                "TemperatureUnit": {
+                    "description": "The updated temperature unit for the room profile.",
+                    "enum": [
+                        "FAHRENHEIT",
+                        "CELSIUS"
+                    ],
+                    "type": "string"
+                },
+                "Timezone": {
+                    "description": "The updated timezone for the room profile.",
+                    "maxLength": 100,
+                    "minLength": 1,
+                    "type": "string"
+                },
+                "WakeWord": {
+                    "description": "The updated wake word for the room profile.",
+                    "enum": [
+                        "ALEXA",
+                        "AMAZON",
+                        "ECHO",
+                        "COMPUTER"
+                    ],
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "X_Amz_Content_Sha256": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_Date": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_Algorithm": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_Credential": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_Security_Token": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_Signature": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_SignedHeaders": {
+            "required": false,
+            "type": "string"
+        }
+    }
+}

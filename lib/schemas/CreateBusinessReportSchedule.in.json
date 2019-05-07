@@ -1,0 +1,109 @@
+{
+    "type": "object",
+    "properties": {
+        "Action": {
+            "required": true,
+            "type": "string"
+        },
+        "Version": {
+            "required": true,
+            "type": "string"
+        },
+        "requestBody": {
+            "properties": {
+                "ClientRequestToken": {
+                    "description": "The client request token.",
+                    "maxLength": 150,
+                    "minLength": 10,
+                    "pattern": "[a-zA-Z0-9][a-zA-Z0-9_-]*",
+                    "type": "string"
+                },
+                "ContentRange": {
+                    "description": "The content range of the reports.",
+                    "properties": {
+                        "Interval": {
+                            "description": "The interval of the content range.",
+                            "enum": [
+                                "ONE_DAY",
+                                "ONE_WEEK"
+                            ],
+                            "type": "string"
+                        }
+                    },
+                    "type": "object"
+                },
+                "Format": {
+                    "description": "The format of the generated report (individual CSV files or zipped files of individual files).",
+                    "enum": [
+                        "CSV",
+                        "CSV_ZIP"
+                    ],
+                    "type": "string"
+                },
+                "Recurrence": {
+                    "description": "The recurrence of the reports. If this isn't specified, the report will only be delivered one time when the API is called. ",
+                    "properties": {
+                        "StartDate": {
+                            "description": "The start date.",
+                            "pattern": "^\\d{4}\\-(0?[1-9]|1[012])\\-(0?[1-9]|[12][0-9]|3[01])$",
+                            "type": "string"
+                        }
+                    },
+                    "type": "object"
+                },
+                "S3BucketName": {
+                    "description": "The S3 bucket name of the output reports. If this isn't specified, the report can be retrieved from a download link by calling ListBusinessReportSchedule. ",
+                    "pattern": "[a-z0-9-\\.]{3,63}",
+                    "type": "string"
+                },
+                "S3KeyPrefix": {
+                    "description": "The S3 key where the report is delivered.",
+                    "maxLength": 100,
+                    "minLength": 0,
+                    "pattern": "[A-Za-z0-9!_\\-\\.\\*'()/]*",
+                    "type": "string"
+                },
+                "ScheduleName": {
+                    "description": "The name identifier of the schedule.",
+                    "maxLength": 64,
+                    "minLength": 0,
+                    "pattern": "[\\u0009\\u000A\\u000D\\u0020-\\u007E\\u0085\\u00A0-\\uD7FF\\uE000-\\uFFFD\\u10000-\\u10FFFF]*",
+                    "type": "string"
+                }
+            },
+            "required": [
+                "Format",
+                "ContentRange"
+            ],
+            "type": "object"
+        },
+        "X_Amz_Content_Sha256": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_Date": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_Algorithm": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_Credential": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_Security_Token": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_Signature": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_SignedHeaders": {
+            "required": false,
+            "type": "string"
+        }
+    }
+}

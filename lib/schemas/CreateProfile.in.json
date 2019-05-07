@@ -1,0 +1,118 @@
+{
+    "type": "object",
+    "properties": {
+        "Action": {
+            "required": true,
+            "type": "string"
+        },
+        "Version": {
+            "required": true,
+            "type": "string"
+        },
+        "requestBody": {
+            "properties": {
+                "Address": {
+                    "description": "The valid address for the room.",
+                    "maxLength": 500,
+                    "minLength": 1,
+                    "type": "string"
+                },
+                "ClientRequestToken": {
+                    "description": "The user-specified token that is used during the creation of a profile.",
+                    "maxLength": 150,
+                    "minLength": 10,
+                    "pattern": "[a-zA-Z0-9][a-zA-Z0-9_-]*",
+                    "type": "string"
+                },
+                "DistanceUnit": {
+                    "description": "The distance unit to be used by devices in the profile.",
+                    "enum": [
+                        "METRIC",
+                        "IMPERIAL"
+                    ],
+                    "type": "string"
+                },
+                "MaxVolumeLimit": {
+                    "description": "The maximum volume limit for a room profile.",
+                    "type": "integer"
+                },
+                "PSTNEnabled": {
+                    "description": "Whether PSTN calling is enabled.",
+                    "type": "boolean"
+                },
+                "ProfileName": {
+                    "description": "The name of a room profile.",
+                    "maxLength": 100,
+                    "minLength": 1,
+                    "pattern": "[\\u0009\\u000A\\u000D\\u0020-\\u007E\\u0085\\u00A0-\\uD7FF\\uE000-\\uFFFD\\u10000-\\u10FFFF]*",
+                    "type": "string"
+                },
+                "SetupModeDisabled": {
+                    "description": "Whether room profile setup is enabled.",
+                    "type": "boolean"
+                },
+                "TemperatureUnit": {
+                    "description": "The temperature unit to be used by devices in the profile.",
+                    "enum": [
+                        "FAHRENHEIT",
+                        "CELSIUS"
+                    ],
+                    "type": "string"
+                },
+                "Timezone": {
+                    "description": "The time zone used by a room profile.",
+                    "maxLength": 100,
+                    "minLength": 1,
+                    "type": "string"
+                },
+                "WakeWord": {
+                    "description": "A wake word for Alexa, Echo, Amazon, or a computer.",
+                    "enum": [
+                        "ALEXA",
+                        "AMAZON",
+                        "ECHO",
+                        "COMPUTER"
+                    ],
+                    "type": "string"
+                }
+            },
+            "required": [
+                "ProfileName",
+                "Timezone",
+                "Address",
+                "DistanceUnit",
+                "TemperatureUnit",
+                "WakeWord"
+            ],
+            "type": "object"
+        },
+        "X_Amz_Content_Sha256": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_Date": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_Algorithm": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_Credential": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_Security_Token": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_Signature": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_SignedHeaders": {
+            "required": false,
+            "type": "string"
+        }
+    }
+}

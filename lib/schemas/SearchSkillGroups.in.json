@@ -1,0 +1,118 @@
+{
+    "type": "object",
+    "properties": {
+        "MaxResults": {
+            "required": false,
+            "type": "string"
+        },
+        "NextToken": {
+            "required": false,
+            "type": "string"
+        },
+        "requestBody": {
+            "properties": {
+                "Filters": {
+                    "description": "The filters to use to list a specified set of skill groups. The supported filter key is SkillGroupName. ",
+                    "items": {
+                        "description": "A filter name and value pair that is used to return a more specific list of results. Filters can be used to match a set of resources by various criteria.",
+                        "properties": {
+                            "Key": {
+                                "description": "The key of a filter.",
+                                "maxLength": 500,
+                                "minLength": 1,
+                                "type": "string"
+                            },
+                            "Values": {
+                                "description": "The values of a filter.",
+                                "items": {
+                                    "maxLength": 500,
+                                    "minLength": 1,
+                                    "type": "string"
+                                },
+                                "maxItems": 5,
+                                "type": "array"
+                            }
+                        },
+                        "required": [
+                            "Key",
+                            "Values"
+                        ],
+                        "type": "object"
+                    },
+                    "maxItems": 25,
+                    "type": "array"
+                },
+                "MaxResults": {
+                    "description": "The maximum number of results to include in the response. If more results exist than the specified <code>MaxResults</code> value, a token is included in the response so that the remaining results can be retrieved. ",
+                    "maximum": 50,
+                    "minimum": 1,
+                    "type": "integer"
+                },
+                "NextToken": {
+                    "description": "An optional token returned from a prior request. Use this token for pagination of results from this action. If this parameter is specified, the response includes only results beyond the token, up to the value specified by <code>MaxResults</code>. Required.",
+                    "maxLength": 1000,
+                    "minLength": 1,
+                    "type": "string"
+                },
+                "SortCriteria": {
+                    "description": "The sort order to use in listing the specified set of skill groups. The supported sort key is SkillGroupName. ",
+                    "items": {
+                        "description": "An object representing a sort criteria. ",
+                        "properties": {
+                            "Key": {
+                                "description": "The sort key of a sort object.",
+                                "maxLength": 500,
+                                "minLength": 1,
+                                "type": "string"
+                            },
+                            "Value": {
+                                "description": "The sort value of a sort object.",
+                                "enum": [
+                                    "ASC",
+                                    "DESC"
+                                ],
+                                "type": "string"
+                            }
+                        },
+                        "required": [
+                            "Key",
+                            "Value"
+                        ],
+                        "type": "object"
+                    },
+                    "maxItems": 25,
+                    "type": "array"
+                }
+            },
+            "type": "object"
+        },
+        "X_Amz_Content_Sha256": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_Date": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_Algorithm": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_Credential": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_Security_Token": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_Signature": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_SignedHeaders": {
+            "required": false,
+            "type": "string"
+        }
+    }
+}

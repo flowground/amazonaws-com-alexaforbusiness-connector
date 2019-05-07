@@ -1,0 +1,1349 @@
+{
+    "title": "Alexa For Business",
+    "description": "Alexa for Business helps you use Alexa in your organization. Alexa for Business provides you with the tools to manage Alexa devices, enroll your users, and assign skills, at scale. You can build your own context-aware voice skills using the Alexa Skills Kit and the Alexa for Business API operations. You can also make these available as private skills for your organization. Alexa for Business makes it efficient to voice-enable your products and services, thus providing context-aware voice experiences for your customers. Device makers building with the Alexa Voice Service (AVS) can create fully integrated solutions, register their products with Alexa for Business, and manage them as shared devices in their organization. ",
+    "docsUrl": "https://aws.amazon.com/a4b/",
+    "url": "https://api.apis.guru/v2/specs/amazonaws.com/alexaforbusiness/2017-11-09/swagger.json",
+    "envVars": {},
+    "credentials": {
+        "fields": {
+            "server": {
+                "label": "Server",
+                "viewClass": "SelectView",
+                "model": [
+                    "https://a4b.amazonaws.com/",
+                    "http://a4b.amazonaws.com/",
+                    "--- Custom URL"
+                ],
+                "required": true
+            },
+            "otherServer": {
+                "label": "Custom Server URL",
+                "viewClass": "TextFieldView"
+            },
+            "hmac": {
+                "label": "Authorization (hmac)",
+                "viewClass": "TextFieldView",
+                "note": "Amazon Signature authorization v4"
+            }
+        }
+    },
+    "triggers": {
+        "startFlow": {
+            "main": "./lib/triggers/startFlow.js",
+            "type": "polling",
+            "title": "Start Flow",
+            "fields": {}
+        }
+    },
+    "actions": {
+        "ApproveSkill": {
+            "main": "./lib/actions/ApproveSkill.js",
+            "title": "Associates a skill with the organization under the customer's AWS account. If a skill is private, the user implicitly accepts access to this skill during enablement.",
+            "description": "Associates a skill with the organization under the customer's AWS account. If a skill is private, the user implicitly accepts access to this skill during enablement.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/ApproveSkill.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "AssociateContactWithAddressBook": {
+            "main": "./lib/actions/AssociateContactWithAddressBook.js",
+            "title": "Associates a contact with a given address book.",
+            "description": "Associates a contact with a given address book.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/AssociateContactWithAddressBook.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "AssociateDeviceWithRoom": {
+            "main": "./lib/actions/AssociateDeviceWithRoom.js",
+            "title": "Associates a device with a given room. This applies all the settings from the room profile to the device, and all the skills in any skill groups added to that room. This operation requires the device to be online, or else a manual sync is required. ",
+            "description": "Associates a device with a given room. This applies all the settings from the room profile to the device, and all the skills in any skill groups added to that room. This operation requires the device to be online, or else a manual sync is required. ",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/AssociateDeviceWithRoom.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "AssociateSkillGroupWithRoom": {
+            "main": "./lib/actions/AssociateSkillGroupWithRoom.js",
+            "title": "Associates a skill group with a given room. This enables all skills in the associated skill group on all devices in the room.",
+            "description": "Associates a skill group with a given room. This enables all skills in the associated skill group on all devices in the room.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/AssociateSkillGroupWithRoom.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "AssociateSkillWithSkillGroup": {
+            "main": "./lib/actions/AssociateSkillWithSkillGroup.js",
+            "title": "Associates a skill with a skill group.",
+            "description": "Associates a skill with a skill group.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/AssociateSkillWithSkillGroup.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "AssociateSkillWithUsers": {
+            "main": "./lib/actions/AssociateSkillWithUsers.js",
+            "title": "Makes a private skill available for enrolled users to enable on their devices.",
+            "description": "Makes a private skill available for enrolled users to enable on their devices.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/AssociateSkillWithUsers.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "CreateAddressBook": {
+            "main": "./lib/actions/CreateAddressBook.js",
+            "title": "Creates an address book with the specified details.",
+            "description": "Creates an address book with the specified details.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/CreateAddressBook.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "CreateBusinessReportSchedule": {
+            "main": "./lib/actions/CreateBusinessReportSchedule.js",
+            "title": "Creates a recurring schedule for usage reports to deliver to the specified S3 location with a specified daily or weekly interval.",
+            "description": "Creates a recurring schedule for usage reports to deliver to the specified S3 location with a specified daily or weekly interval.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/CreateBusinessReportSchedule.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "CreateConferenceProvider": {
+            "main": "./lib/actions/CreateConferenceProvider.js",
+            "title": "Adds a new conference provider under the user's AWS account.",
+            "description": "Adds a new conference provider under the user's AWS account.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/CreateConferenceProvider.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "CreateContact": {
+            "main": "./lib/actions/CreateContact.js",
+            "title": "Creates a contact with the specified details.",
+            "description": "Creates a contact with the specified details.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/CreateContact.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "CreateProfile": {
+            "main": "./lib/actions/CreateProfile.js",
+            "title": "Creates a new room profile with the specified details.",
+            "description": "Creates a new room profile with the specified details.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/CreateProfile.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "CreateRoom": {
+            "main": "./lib/actions/CreateRoom.js",
+            "title": "Creates a room with the specified details.",
+            "description": "Creates a room with the specified details.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/CreateRoom.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "CreateSkillGroup": {
+            "main": "./lib/actions/CreateSkillGroup.js",
+            "title": "Creates a skill group with a specified name and description.",
+            "description": "Creates a skill group with a specified name and description.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/CreateSkillGroup.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "CreateUser": {
+            "main": "./lib/actions/CreateUser.js",
+            "title": "Creates a user.",
+            "description": "Creates a user.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/CreateUser.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "DeleteAddressBook": {
+            "main": "./lib/actions/DeleteAddressBook.js",
+            "title": "Deletes an address book by the address book ARN.",
+            "description": "Deletes an address book by the address book ARN.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/DeleteAddressBook.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "DeleteBusinessReportSchedule": {
+            "main": "./lib/actions/DeleteBusinessReportSchedule.js",
+            "title": "Deletes the recurring report delivery schedule with the specified schedule ARN.",
+            "description": "Deletes the recurring report delivery schedule with the specified schedule ARN.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/DeleteBusinessReportSchedule.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "DeleteConferenceProvider": {
+            "main": "./lib/actions/DeleteConferenceProvider.js",
+            "title": "Deletes a conference provider.",
+            "description": "Deletes a conference provider.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/DeleteConferenceProvider.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "DeleteContact": {
+            "main": "./lib/actions/DeleteContact.js",
+            "title": "Deletes a contact by the contact ARN.",
+            "description": "Deletes a contact by the contact ARN.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/DeleteContact.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "DeleteDevice": {
+            "main": "./lib/actions/DeleteDevice.js",
+            "title": "Removes a device from Alexa For Business.",
+            "description": "Removes a device from Alexa For Business.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/DeleteDevice.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "DeleteProfile": {
+            "main": "./lib/actions/DeleteProfile.js",
+            "title": "Deletes a room profile by the profile ARN.",
+            "description": "Deletes a room profile by the profile ARN.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/DeleteProfile.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "DeleteRoom": {
+            "main": "./lib/actions/DeleteRoom.js",
+            "title": "Deletes a room by the room ARN.",
+            "description": "Deletes a room by the room ARN.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/DeleteRoom.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "DeleteRoomSkillParameter": {
+            "main": "./lib/actions/DeleteRoomSkillParameter.js",
+            "title": "Deletes room skill parameter details by room, skill, and parameter key ID.",
+            "description": "Deletes room skill parameter details by room, skill, and parameter key ID.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/DeleteRoomSkillParameter.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "DeleteSkillAuthorization": {
+            "main": "./lib/actions/DeleteSkillAuthorization.js",
+            "title": "Unlinks a third-party account from a skill.",
+            "description": "Unlinks a third-party account from a skill.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/DeleteSkillAuthorization.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "DeleteSkillGroup": {
+            "main": "./lib/actions/DeleteSkillGroup.js",
+            "title": "Deletes a skill group by skill group ARN.",
+            "description": "Deletes a skill group by skill group ARN.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/DeleteSkillGroup.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "DeleteUser": {
+            "main": "./lib/actions/DeleteUser.js",
+            "title": "Deletes a specified user by user ARN and enrollment ARN.",
+            "description": "Deletes a specified user by user ARN and enrollment ARN.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/DeleteUser.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "DisassociateContactFromAddressBook": {
+            "main": "./lib/actions/DisassociateContactFromAddressBook.js",
+            "title": "Disassociates a contact from a given address book.",
+            "description": "Disassociates a contact from a given address book.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/DisassociateContactFromAddressBook.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "DisassociateDeviceFromRoom": {
+            "main": "./lib/actions/DisassociateDeviceFromRoom.js",
+            "title": "Disassociates a device from its current room. The device continues to be connected to the Wi-Fi network and is still registered to the account. The device settings and skills are removed from the room.",
+            "description": "Disassociates a device from its current room. The device continues to be connected to the Wi-Fi network and is still registered to the account. The device settings and skills are removed from the room.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/DisassociateDeviceFromRoom.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "DisassociateSkillFromSkillGroup": {
+            "main": "./lib/actions/DisassociateSkillFromSkillGroup.js",
+            "title": "Disassociates a skill from a skill group.",
+            "description": "Disassociates a skill from a skill group.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/DisassociateSkillFromSkillGroup.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "DisassociateSkillFromUsers": {
+            "main": "./lib/actions/DisassociateSkillFromUsers.js",
+            "title": "Makes a private skill unavailable for enrolled users and prevents them from enabling it on their devices.",
+            "description": "Makes a private skill unavailable for enrolled users and prevents them from enabling it on their devices.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/DisassociateSkillFromUsers.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "DisassociateSkillGroupFromRoom": {
+            "main": "./lib/actions/DisassociateSkillGroupFromRoom.js",
+            "title": "Disassociates a skill group from a specified room. This disables all skills in the skill group on all devices in the room.",
+            "description": "Disassociates a skill group from a specified room. This disables all skills in the skill group on all devices in the room.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/DisassociateSkillGroupFromRoom.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "ForgetSmartHomeAppliances": {
+            "main": "./lib/actions/ForgetSmartHomeAppliances.js",
+            "title": "Forgets smart home appliances associated to a room.",
+            "description": "Forgets smart home appliances associated to a room.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/ForgetSmartHomeAppliances.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "GetAddressBook": {
+            "main": "./lib/actions/GetAddressBook.js",
+            "title": "Gets address the book details by the address book ARN.",
+            "description": "Gets address the book details by the address book ARN.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/GetAddressBook.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "GetConferencePreference": {
+            "main": "./lib/actions/GetConferencePreference.js",
+            "title": "Retrieves the existing conference preferences.",
+            "description": "Retrieves the existing conference preferences.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/GetConferencePreference.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "GetConferenceProvider": {
+            "main": "./lib/actions/GetConferenceProvider.js",
+            "title": "Gets details about a specific conference provider.",
+            "description": "Gets details about a specific conference provider.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/GetConferenceProvider.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "GetContact": {
+            "main": "./lib/actions/GetContact.js",
+            "title": "Gets the contact details by the contact ARN.",
+            "description": "Gets the contact details by the contact ARN.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/GetContact.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "GetDevice": {
+            "main": "./lib/actions/GetDevice.js",
+            "title": "Gets the details of a device by device ARN.",
+            "description": "Gets the details of a device by device ARN.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/GetDevice.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "GetInvitationConfiguration": {
+            "main": "./lib/actions/GetInvitationConfiguration.js",
+            "title": "Retrieves the configured values for the user enrollment invitation email template.",
+            "description": "Retrieves the configured values for the user enrollment invitation email template.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/GetInvitationConfiguration.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "GetProfile": {
+            "main": "./lib/actions/GetProfile.js",
+            "title": "Gets the details of a room profile by profile ARN.",
+            "description": "Gets the details of a room profile by profile ARN.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/GetProfile.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "GetRoom": {
+            "main": "./lib/actions/GetRoom.js",
+            "title": "Gets room details by room ARN.",
+            "description": "Gets room details by room ARN.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/GetRoom.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "GetRoomSkillParameter": {
+            "main": "./lib/actions/GetRoomSkillParameter.js",
+            "title": "Gets room skill parameter details by room, skill, and parameter key ARN.",
+            "description": "Gets room skill parameter details by room, skill, and parameter key ARN.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/GetRoomSkillParameter.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "GetSkillGroup": {
+            "main": "./lib/actions/GetSkillGroup.js",
+            "title": "Gets skill group details by skill group ARN.",
+            "description": "Gets skill group details by skill group ARN.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/GetSkillGroup.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "ListBusinessReportSchedules": {
+            "main": "./lib/actions/ListBusinessReportSchedules.js",
+            "title": "Lists the details of the schedules that a user configured.",
+            "description": "Lists the details of the schedules that a user configured.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/ListBusinessReportSchedules.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "ListConferenceProviders": {
+            "main": "./lib/actions/ListConferenceProviders.js",
+            "title": "Lists conference providers under a specific AWS account.",
+            "description": "Lists conference providers under a specific AWS account.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/ListConferenceProviders.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "ListDeviceEvents": {
+            "main": "./lib/actions/ListDeviceEvents.js",
+            "title": "Lists the device event history, including device connection status, for up to 30 days.",
+            "description": "Lists the device event history, including device connection status, for up to 30 days.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/ListDeviceEvents.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "ListSkills": {
+            "main": "./lib/actions/ListSkills.js",
+            "title": "Lists all enabled skills in a specific skill group.",
+            "description": "Lists all enabled skills in a specific skill group.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/ListSkills.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "ListSkillsStoreCategories": {
+            "main": "./lib/actions/ListSkillsStoreCategories.js",
+            "title": "Lists all categories in the Alexa skill store.",
+            "description": "Lists all categories in the Alexa skill store.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/ListSkillsStoreCategories.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "ListSkillsStoreSkillsByCategory": {
+            "main": "./lib/actions/ListSkillsStoreSkillsByCategory.js",
+            "title": "Lists all skills in the Alexa skill store by category.",
+            "description": "Lists all skills in the Alexa skill store by category.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/ListSkillsStoreSkillsByCategory.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "ListSmartHomeAppliances": {
+            "main": "./lib/actions/ListSmartHomeAppliances.js",
+            "title": "Lists all of the smart home appliances associated with a room.",
+            "description": "Lists all of the smart home appliances associated with a room.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/ListSmartHomeAppliances.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "ListTags": {
+            "main": "./lib/actions/ListTags.js",
+            "title": "Lists all tags for the specified resource.",
+            "description": "Lists all tags for the specified resource.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/ListTags.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "PutConferencePreference": {
+            "main": "./lib/actions/PutConferencePreference.js",
+            "title": "Sets the conference preferences on a specific conference provider at the account level.",
+            "description": "Sets the conference preferences on a specific conference provider at the account level.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/PutConferencePreference.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "PutInvitationConfiguration": {
+            "main": "./lib/actions/PutInvitationConfiguration.js",
+            "title": "Configures the email template for the user enrollment invitation with the specified attributes.",
+            "description": "Configures the email template for the user enrollment invitation with the specified attributes.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/PutInvitationConfiguration.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "PutRoomSkillParameter": {
+            "main": "./lib/actions/PutRoomSkillParameter.js",
+            "title": "Updates room skill parameter details by room, skill, and parameter key ID. Not all skills have a room skill parameter.",
+            "description": "Updates room skill parameter details by room, skill, and parameter key ID. Not all skills have a room skill parameter.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/PutRoomSkillParameter.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "PutSkillAuthorization": {
+            "main": "./lib/actions/PutSkillAuthorization.js",
+            "title": "Links a user's account to a third-party skill provider. If this API operation is called by an assumed IAM role, the skill being linked must be a private skill. Also, the skill must be owned by the AWS account that assumed the IAM role.",
+            "description": "Links a user's account to a third-party skill provider. If this API operation is called by an assumed IAM role, the skill being linked must be a private skill. Also, the skill must be owned by the AWS account that assumed the IAM role.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/PutSkillAuthorization.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "RegisterAVSDevice": {
+            "main": "./lib/actions/RegisterAVSDevice.js",
+            "title": "Registers an Alexa-enabled device built by an Original Equipment Manufacturer (OEM) using Alexa Voice Service (AVS).",
+            "description": "Registers an Alexa-enabled device built by an Original Equipment Manufacturer (OEM) using Alexa Voice Service (AVS).",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/RegisterAVSDevice.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "RejectSkill": {
+            "main": "./lib/actions/RejectSkill.js",
+            "title": "Disassociates a skill from the organization under a user's AWS account. If the skill is a private skill, it moves to an AcceptStatus of PENDING. Any private or public skill that is rejected can be added later by calling the ApproveSkill API. ",
+            "description": "Disassociates a skill from the organization under a user's AWS account. If the skill is a private skill, it moves to an AcceptStatus of PENDING. Any private or public skill that is rejected can be added later by calling the ApproveSkill API. ",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/RejectSkill.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "ResolveRoom": {
+            "main": "./lib/actions/ResolveRoom.js",
+            "title": "Determines the details for the room from which a skill request was invoked. This operation is used by skill developers.",
+            "description": "Determines the details for the room from which a skill request was invoked. This operation is used by skill developers.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/ResolveRoom.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "RevokeInvitation": {
+            "main": "./lib/actions/RevokeInvitation.js",
+            "title": "Revokes an invitation and invalidates the enrollment URL.",
+            "description": "Revokes an invitation and invalidates the enrollment URL.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/RevokeInvitation.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "SearchAddressBooks": {
+            "main": "./lib/actions/SearchAddressBooks.js",
+            "title": "Searches address books and lists the ones that meet a set of filter and sort criteria.",
+            "description": "Searches address books and lists the ones that meet a set of filter and sort criteria.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/SearchAddressBooks.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "SearchContacts": {
+            "main": "./lib/actions/SearchContacts.js",
+            "title": "Searches contacts and lists the ones that meet a set of filter and sort criteria.",
+            "description": "Searches contacts and lists the ones that meet a set of filter and sort criteria.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/SearchContacts.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "SearchDevices": {
+            "main": "./lib/actions/SearchDevices.js",
+            "title": "Searches devices and lists the ones that meet a set of filter criteria.",
+            "description": "Searches devices and lists the ones that meet a set of filter criteria.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/SearchDevices.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "SearchProfiles": {
+            "main": "./lib/actions/SearchProfiles.js",
+            "title": "Searches room profiles and lists the ones that meet a set of filter criteria.",
+            "description": "Searches room profiles and lists the ones that meet a set of filter criteria.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/SearchProfiles.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "SearchRooms": {
+            "main": "./lib/actions/SearchRooms.js",
+            "title": "Searches rooms and lists the ones that meet a set of filter and sort criteria.",
+            "description": "Searches rooms and lists the ones that meet a set of filter and sort criteria.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/SearchRooms.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "SearchSkillGroups": {
+            "main": "./lib/actions/SearchSkillGroups.js",
+            "title": "Searches skill groups and lists the ones that meet a set of filter and sort criteria.",
+            "description": "Searches skill groups and lists the ones that meet a set of filter and sort criteria.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/SearchSkillGroups.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "SearchUsers": {
+            "main": "./lib/actions/SearchUsers.js",
+            "title": "Searches users and lists the ones that meet a set of filter and sort criteria.",
+            "description": "Searches users and lists the ones that meet a set of filter and sort criteria.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/SearchUsers.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "SendInvitation": {
+            "main": "./lib/actions/SendInvitation.js",
+            "title": "Sends an enrollment invitation email with a URL to a user. The URL is valid for 72 hours or until you call this operation again, whichever comes first. ",
+            "description": "Sends an enrollment invitation email with a URL to a user. The URL is valid for 72 hours or until you call this operation again, whichever comes first. ",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/SendInvitation.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "StartDeviceSync": {
+            "main": "./lib/actions/StartDeviceSync.js",
+            "title": "Resets a device and its account to the known default settings, by clearing all information and settings set by previous users.",
+            "description": "Resets a device and its account to the known default settings, by clearing all information and settings set by previous users.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/StartDeviceSync.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "StartSmartHomeApplianceDiscovery": {
+            "main": "./lib/actions/StartSmartHomeApplianceDiscovery.js",
+            "title": "Initiates the discovery of any smart home appliances associated with the room.",
+            "description": "Initiates the discovery of any smart home appliances associated with the room.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/StartSmartHomeApplianceDiscovery.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "TagResource": {
+            "main": "./lib/actions/TagResource.js",
+            "title": "Adds metadata tags to a specified resource.",
+            "description": "Adds metadata tags to a specified resource.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/TagResource.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "UntagResource": {
+            "main": "./lib/actions/UntagResource.js",
+            "title": "Removes metadata tags from a specified resource.",
+            "description": "Removes metadata tags from a specified resource.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/UntagResource.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "UpdateAddressBook": {
+            "main": "./lib/actions/UpdateAddressBook.js",
+            "title": "Updates address book details by the address book ARN.",
+            "description": "Updates address book details by the address book ARN.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/UpdateAddressBook.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "UpdateBusinessReportSchedule": {
+            "main": "./lib/actions/UpdateBusinessReportSchedule.js",
+            "title": "Updates the configuration of the report delivery schedule with the specified schedule ARN.",
+            "description": "Updates the configuration of the report delivery schedule with the specified schedule ARN.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/UpdateBusinessReportSchedule.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "UpdateConferenceProvider": {
+            "main": "./lib/actions/UpdateConferenceProvider.js",
+            "title": "Updates an existing conference provider's settings.",
+            "description": "Updates an existing conference provider's settings.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/UpdateConferenceProvider.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "UpdateContact": {
+            "main": "./lib/actions/UpdateContact.js",
+            "title": "Updates the contact details by the contact ARN.",
+            "description": "Updates the contact details by the contact ARN.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/UpdateContact.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "UpdateDevice": {
+            "main": "./lib/actions/UpdateDevice.js",
+            "title": "Updates the device name by device ARN.",
+            "description": "Updates the device name by device ARN.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/UpdateDevice.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "UpdateProfile": {
+            "main": "./lib/actions/UpdateProfile.js",
+            "title": "Updates an existing room profile by room profile ARN.",
+            "description": "Updates an existing room profile by room profile ARN.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/UpdateProfile.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "UpdateRoom": {
+            "main": "./lib/actions/UpdateRoom.js",
+            "title": "Updates room details by room ARN.",
+            "description": "Updates room details by room ARN.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/UpdateRoom.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "UpdateSkillGroup": {
+            "main": "./lib/actions/UpdateSkillGroup.js",
+            "title": "Updates skill group details by skill group ARN.",
+            "description": "Updates skill group details by skill group ARN.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/UpdateSkillGroup.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        }
+    }
+}

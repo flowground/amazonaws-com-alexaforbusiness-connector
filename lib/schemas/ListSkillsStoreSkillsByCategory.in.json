@@ -1,0 +1,66 @@
+{
+    "type": "object",
+    "properties": {
+        "MaxResults": {
+            "required": false,
+            "type": "string"
+        },
+        "NextToken": {
+            "required": false,
+            "type": "string"
+        },
+        "requestBody": {
+            "properties": {
+                "CategoryId": {
+                    "description": "The category ID for which the skills are being retrieved from the skill store.",
+                    "minimum": 1,
+                    "type": "integer"
+                },
+                "MaxResults": {
+                    "description": "The maximum number of skills returned per paginated calls.",
+                    "maximum": 10,
+                    "minimum": 1,
+                    "type": "integer"
+                },
+                "NextToken": {
+                    "description": "The tokens used for pagination.",
+                    "maxLength": 1000,
+                    "minLength": 1,
+                    "type": "string"
+                }
+            },
+            "required": [
+                "CategoryId"
+            ],
+            "type": "object"
+        },
+        "X_Amz_Content_Sha256": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_Date": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_Algorithm": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_Credential": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_Security_Token": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_Signature": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_SignedHeaders": {
+            "required": false,
+            "type": "string"
+        }
+    }
+}

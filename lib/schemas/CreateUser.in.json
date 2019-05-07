@@ -1,0 +1,112 @@
+{
+    "type": "object",
+    "properties": {
+        "Action": {
+            "required": true,
+            "type": "string"
+        },
+        "Version": {
+            "required": true,
+            "type": "string"
+        },
+        "requestBody": {
+            "properties": {
+                "ClientRequestToken": {
+                    "description": "A unique, user-specified identifier for this request that ensures idempotency. ",
+                    "maxLength": 150,
+                    "minLength": 10,
+                    "pattern": "[a-zA-Z0-9][a-zA-Z0-9_-]*",
+                    "type": "string"
+                },
+                "Email": {
+                    "description": "The email address for the user.",
+                    "maxLength": 128,
+                    "minLength": 1,
+                    "pattern": "([0-9a-zA-Z]([+-.\\w]*[0-9a-zA-Z])*@([0-9a-zA-Z][-\\w]*[0-9a-zA-Z]\\.)+[a-zA-Z]{2,9})",
+                    "type": "string"
+                },
+                "FirstName": {
+                    "description": "The first name for the user.",
+                    "maxLength": 30,
+                    "minLength": 0,
+                    "pattern": "([A-Za-z\\-' 0-9._]|\\p{IsLetter})*",
+                    "type": "string"
+                },
+                "LastName": {
+                    "description": "The last name for the user.",
+                    "maxLength": 30,
+                    "minLength": 0,
+                    "pattern": "([A-Za-z\\-' 0-9._]|\\p{IsLetter})*",
+                    "type": "string"
+                },
+                "Tags": {
+                    "description": "The tags for the user.",
+                    "items": {
+                        "description": "A key-value pair that can be associated with a resource. ",
+                        "properties": {
+                            "Key": {
+                                "description": "The key of a tag. Tag keys are case-sensitive. ",
+                                "maxLength": 128,
+                                "minLength": 1,
+                                "pattern": "^([\\p{L}\\p{Z}\\p{N}_.:/=+\\-@]*)$",
+                                "type": "string"
+                            },
+                            "Value": {
+                                "description": "The value of a tag. Tag values are case-sensitive and can be null.",
+                                "maxLength": 256,
+                                "minLength": 0,
+                                "pattern": "^([\\p{L}\\p{Z}\\p{N}_.:/=+\\-@]*)$",
+                                "type": "string"
+                            }
+                        },
+                        "required": [
+                            "Key",
+                            "Value"
+                        ],
+                        "type": "object"
+                    },
+                    "type": "array"
+                },
+                "UserId": {
+                    "description": "The ARN for the user.",
+                    "maxLength": 128,
+                    "minLength": 1,
+                    "pattern": "[a-zA-Z0-9@_+.-]*",
+                    "type": "string"
+                }
+            },
+            "required": [
+                "UserId"
+            ],
+            "type": "object"
+        },
+        "X_Amz_Content_Sha256": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_Date": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_Algorithm": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_Credential": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_Security_Token": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_Signature": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_SignedHeaders": {
+            "required": false,
+            "type": "string"
+        }
+    }
+}
